@@ -20,11 +20,6 @@
 cd "${GITHUB_WORKSPACE-.}/${INPUT_WORKDIR}" || exit
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-###### verilator ######
-command -v verilator \
-|| alias verilator='docker run -ti -v ${PWD}:/work --user $(id -u):$(id -g) verilator/verilator:latest'
-# sudo apt-get install verilator
-
 ###### verible ######
 command -v verible-verilog-lint \
     || curl -s https://api.github.com/repos/google/verible/releases/latest \
