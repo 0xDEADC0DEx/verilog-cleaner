@@ -1,10 +1,8 @@
 # Verilog Cleaner
 
-![License Badge](https://img.shields.io/github/license/SuibianP/verilog-cleaner)
-
 ## Introduction
 
-This action lints and formats Verilog code by running [`Verilator`](https://www.veripool.org/wiki/verilator) and [`Verible`](https://google.github.io/verible/) and outputs its findings with [`reviewdog`](https://github.com/reviewdog/reviewdog) through GitHub APIs such as [GitHub Checks](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks).
+This action lints Verilog code by running [`Verible`](https://google.github.io/verible/) and outputs its findings with [`reviewdog`](https://github.com/reviewdog/reviewdog) through GitHub APIs such as [GitHub Checks](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-status-checks).
 
 ## Inputs
 
@@ -44,10 +42,3 @@ jobs:
       with:
         delete-branch: true
 ```
-
-## Assumptions and Limitations
-
-This action assumes that the host OS is Ubuntu, with `docker` and `reviewdog` installed. Other POSIX OSes/compatible layers *can* also be quite easily supported but I have neither the time nor a testing machine for those. Therefore, I will just hope for a miraculously incoming pull request someday.
-
-## Hilarious Thing?
-I actually accidentally [overwritten my `/bin` and `/share` directories with `tar`](https://unix.stackexchange.com/q/640848/450306) when I was testing this script LOL 🤣  A close try to `rm -rf /`!
