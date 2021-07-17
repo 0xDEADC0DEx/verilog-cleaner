@@ -24,7 +24,7 @@ export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 command -v verible-verilog-lint \
     || curl -s https://api.github.com/repos/chipsalliance/verible/releases/latest \
     | awk '/browser_download_url/ {gsub("\"", ""); print($2) }' \
-    | grep "$(lsb_release -c | awk '{print($2)}')"
+    | grep "$(lsb_release -c | awk '{print($2)}')" \
     | xargs curl -L | sudo tar xzf - -h --strip-components 1 -C /
 
 reviewdog -reporter=${INPUT_REPORTER-local} -diff='git diff' -runners=${INPUT_RUNNERS} -conf=${ACTION_PATH-.}/.reviewdog.yml ${DEBUG:+-tee}
