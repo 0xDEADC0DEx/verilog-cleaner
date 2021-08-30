@@ -1,6 +1,6 @@
 runner:
     verible-lint:
-        cmd: 'verible-verilog-lint $(find -L . -type f -name *.v) | cat'
+        cmd: 'verible-verilog-lint -g2005-sv $(find -L . -type f -name *.v) | cat'
         errorformat:
             - '%f:%l:%c: %m'
 
